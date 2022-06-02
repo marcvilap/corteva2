@@ -1,0 +1,31 @@
+@font-face { font-family: Gilroy; font-style: normal; font-weight: 400; font-display: swap; src: url(./assets/Gilroy-Medium.woff2) format('woff2'); }
+@font-face { font-family: Gilroy; font-style: normal; font-weight: 800; font-display: swap; src: url(./assets/Gilroy-ExtraBold.woff2) format('woff2'); }
+
+@media ( max-width: 400px ) { html { font-size: 4vw } }
+@media ( min-width: 1281px ) { html { font-size: 1.25vw } }
+@media ( min-width: 1600px ) { html { font-size: 20px } }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html { @apply scroll-smooth }
+}
+
+@layer utilities {
+	.min-h-screen-fix { min-height: calc(100vh - 3.5rem) }
+	.bg-img-1 { background-image: url(./assets/bg-1.jpg) }
+	.bg-img-2 { background-image: url(./assets/bg-2.jpg) }
+	.bg-img-3 { background-image: url(./assets/bg-3.jpg) }
+	.bg-img-4 { background-image: url(./assets/bg-4.jpg) }
+}
+
+[data-effect=fade-up] { @apply translate-y-24 opacity-0 transition duration-1000 }
+[data-effect=fade-left] { @apply translate-x-24 opacity-0 transition duration-1000 }
+[data-effect=fade-right] { @apply -translate-x-24 opacity-0 transition duration-1000 }
+[data-effect=zoom-in] { @apply scale-75 opacity-0 transition duration-1000 }
+[data-effect=fade-up].active,
+[data-effect=fade-left].active,
+[data-effect=fade-right].active,
+[data-effect=zoom-in].active { @apply opacity-100 translate-x-0 translate-y-0 scale-100 }
